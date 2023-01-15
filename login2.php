@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login2.css">
 </head>
 <body>
 <div class="container">
@@ -15,10 +15,9 @@
             <input type="text" id="username" name="username" placeholder="enter the username">
             <p>password</p>
             <input type="password" name="password" id="password" placeholder="Enter the password">
-
             <input type="submit" value="login">
-            <a href="farmer.php">Forgot password?</a>
-            <a href="register.php">create new account?</a>
+            <a href="consumer.php">Forgot password?</a>
+            <a href="register1.php">create new account?</a>
         </form>
 
         
@@ -45,7 +44,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 
-$sql = "SELECT * FROM registration WHERE username='$username' AND password='$password'";
+$sql = "SELECT * FROM registration2 WHERE username='$username' AND password='$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -53,7 +52,7 @@ if ($result->num_rows > 0) {
     session_start();
     $_SESSION["logged_in"] = true;
     $_SESSION["username"] = $username;
-    header("Location: farmer.php");
+    header("Location: consumer.php");
 } else {
     
     echo
